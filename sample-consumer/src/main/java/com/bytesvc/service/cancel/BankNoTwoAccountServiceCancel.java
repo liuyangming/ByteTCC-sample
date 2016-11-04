@@ -33,7 +33,7 @@ public class BankNoTwoAccountServiceCancel implements IAccountService {
 			if (value != 1) {
 				throw new ServiceException("ERROR!");
 			}
-			System.out.printf("redo increase: acct= %s, amount= %7.2f%n", accountId, amount);
+			System.out.printf("undo increase: acct= %s, amount= %7.2f%n", accountId, amount);
 		} catch (SQLException ex) {
 			throw new ServiceException(ex.getMessage());
 		} finally {
@@ -55,7 +55,7 @@ public class BankNoTwoAccountServiceCancel implements IAccountService {
 			if (value != 1) {
 				throw new ServiceException("ERROR!");
 			}
-			System.out.printf("redo decrease: acct= %s, amount= %7.2f%n", accountId, amount);
+			System.out.printf("undo decrease: acct= %s, amount= %7.2f%n", accountId, amount);
 		} catch (SQLException ex) {
 			throw new ServiceException(ex.getMessage());
 		} finally {
