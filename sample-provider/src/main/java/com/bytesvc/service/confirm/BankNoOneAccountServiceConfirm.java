@@ -17,10 +17,12 @@ public class BankNoOneAccountServiceConfirm implements IAccountService {
 
 	@Transactional(rollbackFor = ServiceException.class)
 	public void increaseAmount(String accountId, double amount) throws ServiceException {
+		System.out.printf("done increase: acct= %s, amount= %7.2f%n", accountId, amount);
 	}
 
 	@Transactional(rollbackFor = ServiceException.class)
 	public void decreaseAmount(String accountId, double amount) throws ServiceException {
+		System.out.printf("done decrease: acct= %s, amount= %7.2f%n", accountId, amount);
 	}
 
 }

@@ -19,3 +19,6 @@ target
 /sample-provider/.project
 /sample-api/.classpath
 /sample-api/.project
+bytetcc
+/sample-provider/sample.log
+/sample-consumer/sample.log

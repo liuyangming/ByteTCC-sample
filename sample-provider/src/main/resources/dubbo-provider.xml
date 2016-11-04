@@ -9,10 +9,10 @@
 		  http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
 	<dubbo:application name="sample-provider" />
-	<dubbo:provider delay="-1" />
-	<dubbo:consumer check="false" />
+	<dubbo:provider timeout="15000" />
+	<dubbo:consumer check="false" timeout="15000" />
 	<dubbo:protocol name="dubbo" port="20882" />
-	<dubbo:registry address="zookeeper://localhost:2181" timeout="360000" />
+	<dubbo:registry address="zookeeper://localhost:2181" />
 
 	<dubbo:service interface="com.bytesvc.service.IAccountService" ref="accountService" group="org.bytesoft.bytetcc"
 		filter="compensable" loadbalance="compensable" cluster="failfast" retries="0" />

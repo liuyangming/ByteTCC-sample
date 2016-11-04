@@ -1,7 +1,12 @@
 package com.bytesvc.service.impl;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 import javax.sql.DataSource;
 
+import org.apache.commons.dbutils.DbUtils;
 import org.bytesoft.compensable.Compensable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,7 +16,7 @@ import com.bytesvc.service.IAccountService;
 
 @Service("accountService")
 @Compensable( //
-interfaceClass = IAccountService.class//
+interfaceClass = IAccountService.class //
 , confirmableKey = "accountServiceConfirm" //
 , cancellableKey = "accountServiceCancel" //
 )
@@ -23,10 +28,46 @@ public class BankNoOneAccountServiceImpl implements IAccountService {
 
 	@Transactional(rollbackFor = ServiceException.class)
 	public void increaseAmount(String accountId, double amount) throws ServiceException {
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		try {
+			conn = this.dataSource.getConnection();
+			stmt = conn.prepareStatement("update tb_account_one set amount = amount + ? where acct_id = ?");
+			stmt.setDouble(1, amount);
+			stmt.setString(2, accountId);
+			int value = stmt.executeUpdate();
+			if (value != 1) {
+				throw new ServiceException("ERROR!");
+			}
+			System.out.printf("exec increase: acct= %s, amount= %7.2f%n", accountId, amount);
+		} catch (SQLException ex) {
+			throw new ServiceException(ex.getMessage());
+		} finally {
+			DbUtils.closeQuietly(stmt);
+			DbUtils.closeQuietly(conn);
+		}
 	}
 
 	@Transactional(rollbackFor = ServiceException.class)
 	public void decreaseAmount(String accountId, double amount) throws ServiceException {
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		try {
+			conn = this.dataSource.getConnection();
+			stmt = conn.prepareStatement("update tb_account_one set amount = amount - ? where acct_id = ?");
+			stmt.setDouble(1, amount);
+			stmt.setString(2, accountId);
+			int value = stmt.executeUpdate();
+			if (value != 1) {
+				throw new ServiceException("ERROR!");
+			}
+			System.out.printf("exec decrease: acct= %s, amount= %7.2f%n", accountId, amount);
+		} catch (SQLException ex) {
+			throw new ServiceException(ex.getMessage());
+		} finally {
+			DbUtils.closeQuietly(stmt);
+			DbUtils.closeQuietly(conn);
+		}
 	}
 
 }
