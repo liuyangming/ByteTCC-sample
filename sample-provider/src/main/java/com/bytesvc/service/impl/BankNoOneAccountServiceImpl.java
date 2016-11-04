@@ -62,6 +62,7 @@ public class BankNoOneAccountServiceImpl implements IAccountService {
 				throw new ServiceException("ERROR!");
 			}
 			System.out.printf("exec decrease: acct= %s, amount= %7.2f%n", accountId, amount);
+			// throw new ServiceException("rollback");
 		} catch (SQLException ex) {
 			throw new ServiceException(ex.getMessage());
 		} finally {
