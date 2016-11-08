@@ -36,7 +36,7 @@ public class ConsumerMain {
 	}
 
 	public static void shutdown() {
-		waitForMillis(1000 * 15);
+		waitForMillis(1000 * 60);
 		if (context != null) {
 			context.close();
 		}
