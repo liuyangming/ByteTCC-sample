@@ -11,7 +11,7 @@ import com.bytesvc.service.IAccountService;
 public class BankNoTwoAccountServiceConfirm implements IAccountService {
 
 	@SuppressWarnings("restriction")
-	@javax.annotation.Resource(name = "jdbcTemplate")
+	@javax.annotation.Resource(name = "jdbcTemplate1")
 	private JdbcTemplate jdbcTemplate;
 
 	@Transactional(rollbackFor = ServiceException.class)

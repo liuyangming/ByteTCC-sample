@@ -11,12 +11,12 @@ import com.bytesvc.service.IAccountService;
 public class BankNoTwoAccountServiceCancel implements IAccountService {
 
 	@SuppressWarnings("restriction")
-	@javax.annotation.Resource(name = "jdbcTemplate")
+	@javax.annotation.Resource(name = "jdbcTemplate1")
 	private JdbcTemplate jdbcTemplate;
 
 	@Transactional(rollbackFor = ServiceException.class)
 	public void increaseAmount(String acctId, double amount) throws ServiceException {
-		int value = this.jdbcTemplate.update("update tb_account_two set amount = amount - ? where acct_id = ?", amount, acctId);
+		int value = this.jdbcTemplate.update("update tb_account_one set amount = amount - ? where acct_id = ?", amount, acctId);
 		if (value != 1) {
 			throw new ServiceException("ERROR!");
 		}
@@ -25,7 +25,7 @@ public class BankNoTwoAccountServiceCancel implements IAccountService {
 
 	@Transactional(rollbackFor = ServiceException.class)
 	public void decreaseAmount(String acctId, double amount) throws ServiceException {
-		int value = this.jdbcTemplate.update("update tb_account_two set amount = amount + ? where acct_id = ?", amount, acctId);
+		int value = this.jdbcTemplate.update("update tb_account_one set amount = amount + ? where acct_id = ?", amount, acctId);
 		if (value != 1) {
 			throw new ServiceException("ERROR!");
 		}
