@@ -9,12 +9,8 @@ import com.bytesvc.ServiceException;
 import com.bytesvc.service.IAccountService;
 
 @Service("accountService")
-@Compensable( //
-		interfaceClass = IAccountService.class //
-		, confirmableKey = "accountServiceConfirm" //
-		, cancellableKey = "accountServiceCancel" //
-)
-public class BankNoOneAccountServiceImpl implements IAccountService {
+@Compensable(interfaceClass = IAccountService.class, confirmableKey = "accountServiceConfirm", cancellableKey = "accountServiceCancel")
+public class AccountServiceImpl implements IAccountService {
 
 	@SuppressWarnings("restriction")
 	@javax.annotation.Resource(name = "jdbcTemplate")
