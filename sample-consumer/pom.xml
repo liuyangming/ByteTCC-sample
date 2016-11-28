@@ -21,7 +21,7 @@
 		<dependency>
 			<groupId>org.bytesoft</groupId>
 			<artifactId>bytetcc-supports</artifactId>
-			<version>0.3.0-alpha</version>
+			<version>0.3.0-beta</version>
 		</dependency>
 		<dependency>
 			<groupId>com.101tec</groupId>

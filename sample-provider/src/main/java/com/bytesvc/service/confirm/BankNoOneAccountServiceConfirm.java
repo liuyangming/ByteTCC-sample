@@ -1,7 +1,6 @@
 package com.bytesvc.service.confirm;
 
-import javax.sql.DataSource;
-
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,8 +11,8 @@ import com.bytesvc.service.IAccountService;
 public class BankNoOneAccountServiceConfirm implements IAccountService {
 
 	@SuppressWarnings("restriction")
-	@javax.annotation.Resource(name = "dataSource")
-	private DataSource dataSource;
+	@javax.annotation.Resource(name = "jdbcTemplate")
+	private JdbcTemplate jdbcTemplate;
 
 	@Transactional(rollbackFor = ServiceException.class)
 	public void increaseAmount(String accountId, double amount) throws ServiceException {
