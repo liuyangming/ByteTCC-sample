@@ -8,7 +8,7 @@ import com.bytesvc.ServiceException;
 import com.bytesvc.service.IAccountService;
 
 @Service("accountServiceCancel")
-public class BankNoTwoAccountServiceCancel implements IAccountService {
+public class AccountServiceCancel implements IAccountService {
 
 	@SuppressWarnings("restriction")
 	@javax.annotation.Resource(name = "jdbcTemplate1")

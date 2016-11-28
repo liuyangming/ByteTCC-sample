@@ -11,7 +11,7 @@ import com.bytesvc.service.IAccountService;
 
 @Service("accountService")
 @Compensable(interfaceClass = IAccountService.class, confirmableKey = "accountServiceConfirm", cancellableKey = "accountServiceCancel")
-public class BankNoTwoAccountServiceImpl implements IAccountService {
+public class AccountServiceImpl implements IAccountService {
 
 	@SuppressWarnings("restriction")
 	@javax.annotation.Resource(name = "jdbcTemplate1")

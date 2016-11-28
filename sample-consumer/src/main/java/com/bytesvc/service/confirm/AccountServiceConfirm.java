@@ -8,7 +8,7 @@ import com.bytesvc.ServiceException;
 import com.bytesvc.service.IAccountService;
 
 @Service("accountServiceConfirm")
-public class BankNoTwoAccountServiceConfirm implements IAccountService {
+public class AccountServiceConfirm implements IAccountService {
 
 	@SuppressWarnings("restriction")
 	@javax.annotation.Resource(name = "jdbcTemplate1")
