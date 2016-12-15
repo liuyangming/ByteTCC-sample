@@ -16,7 +16,7 @@
 		<dependency>
 			<groupId>org.bytesoft</groupId>
 			<artifactId>bytetcc-common</artifactId>
-			<version>0.3.0-beta</version>
+			<version>0.3.0-RC1</version>
 		</dependency>
 	</dependencies>
 
