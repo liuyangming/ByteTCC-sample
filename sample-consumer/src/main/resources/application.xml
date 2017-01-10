@@ -22,8 +22,8 @@
 		<property name="url" value="jdbc:mysql://127.0.0.1:3306/inst01" />
 		<property name="username" value="root" />
 		<property name="password" value="123456" />
-		<property name="maxActive" value="2" />
-		<property name="initialSize" value="1" />
+		<property name="maxActive" value="50" />
+		<property name="initialSize" value="20" />
 		<property name="maxWait" value="60000" />
 		<property name="minIdle" value="6" />
 		<property name="logAbandoned" value="true" />
@@ -50,8 +50,8 @@
 		<property name="url" value="jdbc:mysql://127.0.0.1:3306/inst02" />
 		<property name="username" value="root" />
 		<property name="password" value="123456" />
-		<property name="maxActive" value="2" />
-		<property name="initialSize" value="1" />
+		<property name="maxActive" value="50" />
+		<property name="initialSize" value="20" />
 		<property name="maxWait" value="60000" />
 		<property name="minIdle" value="6" />
 		<property name="logAbandoned" value="true" />
