@@ -20,6 +20,8 @@ public class Account implements Serializable {
 	private String identifier;
 	@Column(name = "amount", nullable = false)
 	private double amount;
+	@Column(name = "frozen", nullable = false)
+	private double frozen;
 
 	public String getIdentifier() {
 		return identifier;
@@ -35,6 +37,14 @@ public class Account implements Serializable {
 
 	public void setAmount(double amount) {
 		this.amount = amount;
+	}
+
+	public double getFrozen() {
+		return frozen;
+	}
+
+	public void setFrozen(double frozen) {
+		this.frozen = frozen;
 	}
 
 }

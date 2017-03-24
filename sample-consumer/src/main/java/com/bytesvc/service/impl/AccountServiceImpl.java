@@ -19,7 +19,7 @@ public class AccountServiceImpl implements IAccountService {
 
 	@Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor = ServiceException.class)
 	public void increaseAmount(String acctId, double amount) throws ServiceException {
-		int value = this.jdbcTemplate.update("update tb_account_one set amount = amount + ? where acct_id = ?", amount, acctId);
+		int value = this.jdbcTemplate.update("update tb_account_one set frozen = frozen + ? where acct_id = ?", amount, acctId);
 		if (value != 1) {
 			throw new ServiceException("ERROR!");
 		}
@@ -28,7 +28,8 @@ public class AccountServiceImpl implements IAccountService {
 
 	@Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor = ServiceException.class)
 	public void decreaseAmount(String acctId, double amount) throws ServiceException {
-		int value = this.jdbcTemplate.update("update tb_account_one set amount = amount - ? where acct_id = ?", amount, acctId);
+		int value = this.jdbcTemplate.update(
+				"update tb_account_one set amount = amount - ?, frozen = frozen + ? where acct_id = ?", amount, amount, acctId);
 		if (value != 1) {
 			throw new ServiceException("ERROR!");
 		}

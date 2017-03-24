@@ -30,7 +30,7 @@ public class GenericTransferServiceImpl implements ITransferService {
 	}
 
 	private void increaseAmount(String acctId, double amount) throws ServiceException {
-		int value = this.jdbcTemplate.update("update tb_account_two set amount = amount + ? where acct_id = ?", amount, acctId);
+		int value = this.jdbcTemplate.update("update tb_account_two set frozen = frozen + ? where acct_id = ?", amount, acctId);
 		if (value != 1) {
 			throw new ServiceException("ERROR!");
 		}

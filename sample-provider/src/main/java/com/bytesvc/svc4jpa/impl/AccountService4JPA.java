@@ -20,7 +20,7 @@ public class AccountService4JPA implements IAccountService {
 	@Transactional(rollbackFor = ServiceException.class)
 	public void increaseAmount(String acctId, double amount) throws ServiceException {
 		Account account = this.accountDao.findById(acctId);
-		account.setAmount(account.getAmount() + amount); // 真实业务中, 请考虑设置乐观锁/悲观锁, 以便并发操作时导致数据不一致
+		account.setFrozen(account.getFrozen() + amount); // 真实业务中, 请考虑设置乐观锁/悲观锁, 以便并发操作时导致数据不一致
 		this.accountDao.update(account);
 		System.out.printf("[jpa] exec increase: acct= %s, amount= %7.2f%n", acctId, amount);
 	}
@@ -29,6 +29,7 @@ public class AccountService4JPA implements IAccountService {
 	public void decreaseAmount(String acctId, double amount) throws ServiceException {
 		Account account = this.accountDao.findById(acctId);
 		account.setAmount(account.getAmount() - amount); // 真实业务中, 请考虑设置乐观锁/悲观锁, 以便并发操作时导致数据不一致
+		account.setFrozen(account.getFrozen() + amount);
 		this.accountDao.update(account);
 		System.out.printf("[jpa] exec decrease: acct= %s, amount= %7.2f%n", acctId, amount);
 		// throw new ServiceException("rollback");

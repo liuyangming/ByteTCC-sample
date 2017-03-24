@@ -16,7 +16,7 @@ public class TransferServiceCancel implements ITransferService {
 
 	@Transactional(rollbackFor = ServiceException.class)
 	public void transfer(String sourceAcctId, String targetAcctId, double amount) throws ServiceException {
-		int value = this.jdbcTemplate.update("update tb_account_two set amount = amount - ? where acct_id = ?", amount,
+		int value = this.jdbcTemplate.update("update tb_account_two set frozen = frozen - ? where acct_id = ?", amount,
 				targetAcctId);
 		if (value != 1) {
 			throw new ServiceException("ERROR!");
