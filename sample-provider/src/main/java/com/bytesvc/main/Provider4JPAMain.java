@@ -1,16 +1,16 @@
-package com.bytesvc.service.main;
+package com.bytesvc.main;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class ProviderMain {
+public class Provider4JPAMain {
 
 	static ClassPathXmlApplicationContext context = null;
 
 	public static void main(String... args) throws Throwable {
-		context = new ClassPathXmlApplicationContext("application.xml");
+		context = new ClassPathXmlApplicationContext("application-hibernate.xml");
 		context.start();
 
-		System.out.println("sample-provider started!");
+		System.out.println("sample-provider(hibernate) started!");
 	}
 
 }

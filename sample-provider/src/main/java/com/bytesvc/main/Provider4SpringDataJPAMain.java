@@ -1,4 +1,4 @@
-package com.bytesvc.service.main;
+package com.bytesvc.main;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

@@ -64,7 +64,7 @@
 		</property>
 	</bean>
 
-	<jpa:repositories base-package="com.bytesvc.svc4jpa,com.bytesvc.dao,com.bytesvc.jpa.springdata" entity-manager-factory-ref="entityManagerFactory"
-		transaction-manager-ref="transactionManager" />
+	<jpa:repositories base-package="com.bytesvc.svc4jpa,com.bytesvc.dao,com.bytesvc.jpa.springdata"
+		entity-manager-factory-ref="entityManagerFactory" transaction-manager-ref="transactionManager" />
 
 </beans>
