@@ -1,7 +1,6 @@
 package com.bytesvc.svc4jpa.impl;
 
 import org.bytesoft.compensable.Compensable;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,7 +13,8 @@ import com.bytesvc.svc4jpa.model.Account;
 @Compensable(interfaceClass = IAccountService.class, confirmableKey = "accountServiceConfirm4JPA", cancellableKey = "accountServiceCancel4JPA")
 public class AccountService4JPA implements IAccountService {
 
-	@Autowired
+	@SuppressWarnings("restriction")
+	@javax.annotation.Resource(name = "accountDao")
 	private IAccountDao accountDao;
 
 	@Transactional(rollbackFor = ServiceException.class)

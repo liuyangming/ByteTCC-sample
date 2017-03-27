@@ -1,6 +1,5 @@
 package com.bytesvc.svc4jpa.confirm;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,7 +11,8 @@ import com.bytesvc.svc4jpa.model.Account;
 @Service("accountServiceConfirm4JPA")
 public class AccountServiceConfirm4JPA implements IAccountService {
 
-	@Autowired
+	@SuppressWarnings("restriction")
+	@javax.annotation.Resource(name = "accountDao")
 	private IAccountDao accountDao;
 
 	@Transactional(rollbackFor = ServiceException.class)
