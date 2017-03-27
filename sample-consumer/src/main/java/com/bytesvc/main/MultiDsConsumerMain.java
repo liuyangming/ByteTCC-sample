@@ -1,19 +1,22 @@
-package com.bytesvc.service.main;
+package com.bytesvc.main;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.bytesvc.service.ITransferService;
+
 /**
- * 无业务逻辑, 启动应用以便ByteTCC执行恢复操作.
+ * 多数据源场景
  */
-public class RecoverConsumerMain {
+public class MultiDsConsumerMain {
 
 	static ClassPathXmlApplicationContext context = null;
 
 	public static void main(String... args) throws Throwable {
 		startup();
 
+		ITransferService transferSvc = (ITransferService) context.getBean("multiDsTransferService");
 		try {
-			waitForMillis(1000 * 3600);
+			transferSvc.transfer("1001", "2001", 1.00d);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		} finally {
@@ -36,6 +39,7 @@ public class RecoverConsumerMain {
 	}
 
 	public static void shutdown() {
+		waitForMillis(1000 * 60);
 		if (context != null) {
 			context.close();
 		}

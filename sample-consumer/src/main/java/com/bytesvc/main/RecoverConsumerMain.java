@@ -1,22 +1,19 @@
-package com.bytesvc.service.main;
+package com.bytesvc.main;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.bytesvc.service.ITransferService;
-
 /**
- * 远程调用场景
+ * 无业务逻辑, 启动应用以便ByteTCC执行恢复操作.
  */
-public class GenericConsumerMain {
+public class RecoverConsumerMain {
 
 	static ClassPathXmlApplicationContext context = null;
 
 	public static void main(String... args) throws Throwable {
 		startup();
 
-		ITransferService transferSvc = (ITransferService) context.getBean("genericTransferService");
 		try {
-			transferSvc.transfer("1001", "2001", 1.00d);
+			waitForMillis(1000 * 3600);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		} finally {
@@ -39,7 +36,6 @@ public class GenericConsumerMain {
 	}
 
 	public static void shutdown() {
-		waitForMillis(1000 * 60);
 		if (context != null) {
 			context.close();
 		}

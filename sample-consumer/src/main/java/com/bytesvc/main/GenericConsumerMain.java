@@ -1,20 +1,20 @@
-package com.bytesvc.service.main;
+package com.bytesvc.main;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.bytesvc.service.ITransferService;
 
 /**
- * 多数据源场景
+ * 远程调用场景
  */
-public class MultiDsConsumerMain {
+public class GenericConsumerMain {
 
 	static ClassPathXmlApplicationContext context = null;
 
 	public static void main(String... args) throws Throwable {
 		startup();
 
-		ITransferService transferSvc = (ITransferService) context.getBean("multiDsTransferService");
+		ITransferService transferSvc = (ITransferService) context.getBean("genericTransferService");
 		try {
 			transferSvc.transfer("1001", "2001", 1.00d);
 		} catch (Exception ex) {
