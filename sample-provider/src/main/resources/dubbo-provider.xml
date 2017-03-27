@@ -21,8 +21,7 @@
 	<!-- 1、全局事务发起方为provider，即consumer不传播事务上下文. -->
 	<!-- 2、若consumer参与事务（无论是普通事务还是tcc事务），则其与provider端事务属于两个独立的事务，一致性无法保证. -->
 	<!-- 注意：除非consumer不参与事务（无论是普通事务还是tcc事务），否则应该调用tcc型远程service，而不是远程service -->
-	<!-- 该特性自0.3.1开始支持. 若无法找到ByteTCC 0.3.1版本，也可从0.3.x分支上自行打包. -->
-	<!-- <dubbo:service interface="com.bytesvc.service.IAccountService" ref="accountService" cluster="failfast"
-		retries="0" /> -->
+	<dubbo:service interface="com.bytesvc.service.IAccountService" ref="accountService" cluster="failfast"
+		retries="0" />
 
 </beans>

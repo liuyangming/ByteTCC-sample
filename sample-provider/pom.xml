@@ -21,7 +21,7 @@
 		<dependency>
 			<groupId>org.bytesoft</groupId>
 			<artifactId>bytetcc-supports</artifactId>
-			<version>0.3.0</version>
+			<version>0.3.1</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.springframework</groupId>
