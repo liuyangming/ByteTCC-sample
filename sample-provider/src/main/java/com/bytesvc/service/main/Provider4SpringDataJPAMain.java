@@ -10,7 +10,7 @@ public class Provider4SpringDataJPAMain {
 		context = new ClassPathXmlApplicationContext("application-spring-data-jpa.xml");
 		context.start();
 
-		System.out.println("sample-provider(hibernate) started!");
+		System.out.println("sample-provider(spring-data-jpa) started!");
 	}
 
 }

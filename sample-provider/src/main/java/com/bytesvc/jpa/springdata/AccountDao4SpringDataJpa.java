@@ -1,14 +1,14 @@
-package com.bytesvc.svc4jpa.dao;
+package com.bytesvc.jpa.springdata;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.bytesvc.service.repository.AccountRepository;
-import com.bytesvc.svc4jpa.model.Account;
+import com.bytesvc.dao.IAccountDao;
+import com.bytesvc.dao.model.Account;
 
-@Component("accountDao4SpringDataJpa")
+@Component("accountDao")
 public class AccountDao4SpringDataJpa implements IAccountDao {
-	@SuppressWarnings("restriction")
-	@javax.annotation.Resource(name = "accountRepository")
+	@Autowired
 	private AccountRepository repository;
 
 	public Account findById(String identifier) {

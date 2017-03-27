@@ -15,7 +15,7 @@
 	<import resource="classpath:bytetcc.xml" />
 	<import resource="dubbo-provider-4jpa.xml" />
 
-	<context:component-scan base-package="com.bytesvc.svc4jpa" />
+	<context:component-scan base-package="com.bytesvc.svc4jpa,com.bytesvc.dao,com.bytesvc.jpa.hibernate" />
 
 	<bean id="mysql1" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
@@ -45,7 +45,7 @@
 
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="packagesToScan" value="com.bytesvc.svc4jpa" />
+		<property name="packagesToScan" value="com.bytesvc.dao,com.bytesvc.jpa.hibernate" />
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>

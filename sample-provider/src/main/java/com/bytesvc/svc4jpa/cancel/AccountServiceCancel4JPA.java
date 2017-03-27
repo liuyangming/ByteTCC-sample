@@ -4,9 +4,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.bytesvc.ServiceException;
+import com.bytesvc.dao.IAccountDao;
+import com.bytesvc.dao.model.Account;
 import com.bytesvc.service.IAccountService;
-import com.bytesvc.svc4jpa.dao.IAccountDao;
-import com.bytesvc.svc4jpa.model.Account;
 
 @Service("accountServiceCancel4JPA")
 public class AccountServiceCancel4JPA implements IAccountService {

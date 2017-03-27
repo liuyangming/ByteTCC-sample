@@ -1,11 +1,12 @@
-package com.bytesvc.svc4jpa.dao;
+package com.bytesvc.jpa.hibernate;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.bytesvc.svc4jpa.model.Account;
+import com.bytesvc.dao.IAccountDao;
+import com.bytesvc.dao.model.Account;
 
 @Component("accountDao")
 public class AccountDaoImpl implements IAccountDao {

@@ -17,7 +17,7 @@
 	<import resource="classpath:bytetcc.xml" />
 	<import resource="dubbo-provider-4jpa.xml" />
 
-	<context:component-scan base-package="com.bytesvc.svc4jpa" />
+	<context:component-scan base-package="com.bytesvc.svc4jpa,com.bytesvc.dao,com.bytesvc.jpa.springdata" />
 
 	<bean id="mysql1" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
@@ -45,27 +45,9 @@
 		<property name="dataSource" ref="mysql1" />
 	</bean>
 
-	<!-- 为了让AccountDaoImpl注入不出错，实际使用spring data jpa时不需要 -->
-	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-		<property name="dataSource" ref="dataSource" />
-		<property name="packagesToScan" value="com.bytesvc.svc4jpa" />
-		<property name="hibernateProperties">
-			<props>
-				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
-				<prop key="hibernate.show_sql">false</prop>
-				<prop key="hibernate.format_sql">false</prop>
-				<prop key="hibernate.use_sql_comments">false</prop>
-				<prop key="hibernate.cache.use_second_level_cache">false</prop>
-			</props>
-		</property>
-	</bean>
-
 	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="packagesToScan" value="com.bytesvc.svc4jpa" />
-		<!-- <property name="persistenceProvider"> -->
-		<!-- <bean class="org.hibernate.ejb.HibernatePersistence" /> -->
-		<!-- </property> -->
+		<property name="packagesToScan" value="com.bytesvc.svc4jpa,com.bytesvc.dao,com.bytesvc.jpa.springdata" />
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
 		</property>
@@ -82,7 +64,7 @@
 		</property>
 	</bean>
 
-	<jpa:repositories base-package="com.bytesvc.service" entity-manager-factory-ref="entityManagerFactory"
+	<jpa:repositories base-package="com.bytesvc.svc4jpa,com.bytesvc.dao,com.bytesvc.jpa.springdata" entity-manager-factory-ref="entityManagerFactory"
 		transaction-manager-ref="transactionManager" />
 
 </beans>

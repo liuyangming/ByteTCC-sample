@@ -1,6 +1,6 @@
-package com.bytesvc.svc4jpa.dao;
+package com.bytesvc.dao;
 
-import com.bytesvc.svc4jpa.model.Account;
+import com.bytesvc.dao.model.Account;
 
 public interface IAccountDao {
 

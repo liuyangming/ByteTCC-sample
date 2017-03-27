@@ -1,4 +1,4 @@
-package com.bytesvc.svc4jpa.model;
+package com.bytesvc.dao.model;
 
 import java.io.Serializable;
 
