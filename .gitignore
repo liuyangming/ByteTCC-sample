@@ -30,3 +30,9 @@ bytetcc
 /dubbo/sample-provider/.project
 /dubbo/sample-provider/sample.log
 /dubbo/sample-consumer/sample.log
+/dubbo-sample/sample-provider/.classpath
+/dubbo-sample/sample-consumer/.classpath
+/dubbo-sample/sample-consumer/.project
+/dubbo-sample/sample-provider/.project
+/dubbo-sample/sample-api/.classpath
+/dubbo-sample/sample-api/.project
