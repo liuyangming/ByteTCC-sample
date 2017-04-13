@@ -22,3 +22,11 @@ target
 bytetcc
 /sample-provider/sample.log
 /sample-consumer/sample.log
+/dubbo/sample-api/.classpath
+/dubbo/sample-api/.project
+/dubbo/sample-consumer/.classpath
+/dubbo/sample-consumer/.project
+/dubbo/sample-provider/.classpath
+/dubbo/sample-provider/.project
+/dubbo/sample-provider/sample.log
+/dubbo/sample-consumer/sample.log
