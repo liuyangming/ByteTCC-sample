@@ -2,10 +2,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>org.bytesoft.sample</groupId>
-	<artifactId>sample-api</artifactId>
-	<version>0.0.1</version>
-	<name>sample-api</name>
+	<groupId>org.bytesoft.bytetcc.sample</groupId>
+	<artifactId>dubbo-sample-api</artifactId>
+	<version>0.0.2</version>
+	<name>dubbo-sample-api</name>
 
 	<dependencies>
 		<dependency>

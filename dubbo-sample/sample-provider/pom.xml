@@ -2,21 +2,21 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>org.bytesoft.sample</groupId>
-	<artifactId>sample-provider</artifactId>
-	<version>0.0.1</version>
-	<name>sample-provider</name>
+	<groupId>org.bytesoft.bytetcc.sample</groupId>
+	<artifactId>dubbo-sample-provider</artifactId>
+	<version>0.0.2</version>
+	<name>dubbo-sample-provider</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<spring.version>4.2.9.RELEASE</spring.version>
+		<spring.version>4.3.7.RELEASE</spring.version>
 	</properties>
 
 	<dependencies>
 		<dependency>
-			<groupId>org.bytesoft.sample</groupId>
-			<artifactId>sample-api</artifactId>
-			<version>0.0.1</version>
+			<groupId>org.bytesoft.bytetcc.sample</groupId>
+			<artifactId>dubbo-sample-api</artifactId>
+			<version>0.0.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.bytesoft</groupId>
@@ -61,42 +61,42 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-beans</artifactId>
-			<version>4.2.9.RELEASE</version>
+			<version>4.3.7.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
-			<version>4.2.9.RELEASE</version>
+			<version>4.3.7.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
-			<version>4.2.9.RELEASE</version>
+			<version>4.3.7.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
-			<version>4.2.9.RELEASE</version>
+			<version>4.3.7.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
-			<version>4.2.9.RELEASE</version>
+			<version>4.3.7.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aop</artifactId>
-			<version>4.2.9.RELEASE</version>
+			<version>4.3.7.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>4.2.9.RELEASE</version>
+			<version>4.3.7.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-expression</artifactId>
-			<version>4.2.9.RELEASE</version>
+			<version>4.3.7.RELEASE</version>
 		</dependency>
 
 		<dependency>
@@ -118,7 +118,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
-			<version>4.2.9.RELEASE</version>
+			<version>4.3.7.RELEASE</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.springframework</groupId>

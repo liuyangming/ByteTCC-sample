@@ -36,3 +36,11 @@ bytetcc
 /dubbo-sample/sample-provider/.project
 /dubbo-sample/sample-api/.classpath
 /dubbo-sample/sample-api/.project
+/springcloud-sample/sample-consumer/.classpath
+/springcloud-sample/sample-consumer/.project
+/springcloud-sample/sample-eureka-server/.classpath
+/springcloud-sample/sample-eureka-server/.project
+/springcloud-sample/sample-provider/.classpath
+/springcloud-sample/sample-provider/.project
+/dubbo-sample/sample-provider/*.log
+/dubbo-sample/sample-consumer/*.log
