@@ -1,0 +1,10 @@
+server:
+  port: 7080
+
+eureka:
+  instance:
+    hostname: inst2
+  client:
+    serviceUrl:
+      defaultZone: http://inst1:7000/eureka/
+
