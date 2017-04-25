@@ -4,10 +4,13 @@ import javax.sql.DataSource;
 
 import org.apache.commons.dbcp.BasicDataSource;
 import org.bytesoft.bytejta.supports.jdbc.LocalXADataSource;
+import org.bytesoft.bytetcc.supports.springcloud.SpringCloudConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+@Import(SpringCloudConfiguration.class)
 @Configuration
 public class ConsumerConfig {
 
