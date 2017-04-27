@@ -5,5 +5,7 @@ eureka:
   instance:
     hostname: inst1
   client:
+    registerWithEureka: false
+    fetchRegistry: false
     serviceUrl:
       defaultZone: http://inst1:7000/eureka/
