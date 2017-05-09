@@ -4,6 +4,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.context.annotation.ImportResource;
 
 /**
@@ -13,6 +14,7 @@ import org.springframework.context.annotation.ImportResource;
 @ImportResource({ "classpath:bytetcc-supports-springcloud.xml" })
 @EnableDiscoveryClient
 @EnableEurekaClient
+@EnableFeignClients("com.bytesvc.feign")
 @SpringBootApplication(scanBasePackages = "com.bytesvc.consumer")
 public class SampleConsumerMain {
 
