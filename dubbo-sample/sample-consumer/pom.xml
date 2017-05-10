@@ -9,7 +9,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<spring.version>4.2.9.RELEASE</spring.version>
+		<spring.version>4.3.7.RELEASE</spring.version>
 	</properties>
 
 	<dependencies>
@@ -21,7 +21,7 @@
 		<dependency>
 			<groupId>org.bytesoft</groupId>
 			<artifactId>bytetcc-supports</artifactId>
-			<version>0.3.1</version>
+			<version>0.3.2</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.springframework</groupId>
@@ -61,42 +61,42 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-beans</artifactId>
-			<version>4.2.9.RELEASE</version>
+			<version>4.3.7.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
-			<version>4.2.9.RELEASE</version>
+			<version>4.3.7.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
-			<version>4.2.9.RELEASE</version>
+			<version>4.3.7.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
-			<version>4.2.9.RELEASE</version>
+			<version>4.3.7.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
-			<version>4.2.9.RELEASE</version>
+			<version>4.3.7.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aop</artifactId>
-			<version>4.2.9.RELEASE</version>
+			<version>4.3.7.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>4.2.9.RELEASE</version>
+			<version>4.3.7.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-expression</artifactId>
-			<version>4.2.9.RELEASE</version>
+			<version>4.3.7.RELEASE</version>
 		</dependency>
 
 		<dependency>
