@@ -26,7 +26,7 @@ public class AccountServiceCancel implements IAccountService {
 	@Transactional(rollbackFor = ServiceException.class)
 	public void decreaseAmount(String acctId, double amount) throws ServiceException {
 		int value = this.jdbcTemplate.update(
-				"update tb_account_one set amount = amount + ?, frozen = frozen + ? where acct_id = ?", amount, amount, acctId);
+				"update tb_account_one set amount = amount + ?, frozen = frozen - ? where acct_id = ?", amount, amount, acctId);
 		if (value != 1) {
 			throw new ServiceException("ERROR!");
 		}
