@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bytesvc.consumer.dao.TransferDao">
+
+	<update id="increaseAmount">
+	<![CDATA[
+		update tb_account_two set frozen = frozen + #{amount} where acct_id = #{acctId}
+	]]>
+	</update>
+
+	<update id="confirmIncrease">
+	<![CDATA[
+		update tb_account_two set amount = amount + #{amount}, frozen = frozen - #{amount} where acct_id = #{acctId}
+	]]>
+	</update>
+
+	<update id="cancelIncrease">
+	<![CDATA[
+		update tb_account_two set frozen = frozen - #{amount} where acct_id = #{acctId}
+	]]>
+	</update>
+
+</mapper>

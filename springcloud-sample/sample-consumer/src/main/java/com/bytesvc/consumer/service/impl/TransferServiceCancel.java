@@ -1,22 +1,21 @@
 package com.bytesvc.consumer.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.bytesvc.consumer.dao.TransferDao;
 import com.bytesvc.consumer.service.ITransferService;
 
 @Service("transferServiceCancel")
 public class TransferServiceCancel implements ITransferService {
 
 	@Autowired
-	private JdbcTemplate jdbcTemplate;
+	private TransferDao transferDao;
 
 	@Transactional
 	public void transfer(String sourceAcctId, String targetAcctId, double amount) {
-		int value = this.jdbcTemplate.update("update tb_account_two set frozen = frozen - ? where acct_id = ?", amount,
-				targetAcctId);
+		int value = this.transferDao.cancelIncrease(targetAcctId, amount);
 		if (value != 1) {
 			throw new IllegalStateException("ERROR!");
 		}

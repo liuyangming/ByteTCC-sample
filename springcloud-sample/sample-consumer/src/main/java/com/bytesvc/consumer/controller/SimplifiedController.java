@@ -4,7 +4,6 @@ import org.bytesoft.compensable.Compensable;
 import org.bytesoft.compensable.CompensableCancel;
 import org.bytesoft.compensable.CompensableConfirm;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.bytesvc.consumer.dao.TransferDao;
 import com.bytesvc.consumer.service.ITransferService;
 import com.bytesvc.feign.service.IAccountService;
 
@@ -19,7 +19,7 @@ import com.bytesvc.feign.service.IAccountService;
 @RestController
 public class SimplifiedController implements ITransferService {
 	@Autowired
-	private JdbcTemplate jdbcTemplate;
+	private TransferDao transferDao;
 
 	@Autowired
 	private IAccountService acctService;
@@ -35,7 +35,7 @@ public class SimplifiedController implements ITransferService {
 	}
 
 	private void increaseAmount(String acctId, double amount) {
-		int value = this.jdbcTemplate.update("update tb_account_two set frozen = frozen + ? where acct_id = ?", amount, acctId);
+		int value = this.transferDao.increaseAmount(acctId, amount);
 		if (value != 1) {
 			throw new IllegalStateException("ERROR!");
 		}
@@ -45,9 +45,7 @@ public class SimplifiedController implements ITransferService {
 	@CompensableConfirm
 	@Transactional
 	public void confirmTransfer(String sourceAcctId, String targetAcctId, double amount) {
-		int value = this.jdbcTemplate.update(
-				"update tb_account_two set amount = amount + ?, frozen = frozen - ? where acct_id = ?", amount, amount,
-				targetAcctId);
+		int value = this.transferDao.confirmIncrease(targetAcctId, amount);
 		if (value != 1) {
 			throw new IllegalStateException("ERROR!");
 		}
@@ -57,8 +55,7 @@ public class SimplifiedController implements ITransferService {
 	@CompensableCancel
 	@Transactional
 	public void cancelTransfer(String sourceAcctId, String targetAcctId, double amount) {
-		int value = this.jdbcTemplate.update("update tb_account_two set frozen = frozen - ? where acct_id = ?", amount,
-				targetAcctId);
+		int value = this.transferDao.cancelIncrease(targetAcctId, amount);
 		if (value != 1) {
 			throw new IllegalStateException("ERROR!");
 		}
