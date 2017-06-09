@@ -138,7 +138,7 @@
 	<!-- spring cloud end -->
 
 	<build>
-		<finalName>sc-config-client-test</finalName>
+		<finalName>springcloud-sample-consumer</finalName>
 	</build>
 
 </project>

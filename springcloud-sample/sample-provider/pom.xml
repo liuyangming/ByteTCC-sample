@@ -102,4 +102,8 @@
 	</repositories>
 	<!-- spring cloud end -->
 
+	<build>
+		<finalName>springcloud-sample-provider</finalName>
+	</build>
+
 </project>
