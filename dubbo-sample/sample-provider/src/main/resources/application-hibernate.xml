@@ -12,7 +12,7 @@
         http://www.springframework.org/schema/aop 
         http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
-	<import resource="classpath:bytetcc.xml" />
+	<import resource="classpath:bytetcc-supports-dubbo.xml" />
 	<import resource="dubbo-provider-4jpa.xml" />
 
 	<context:component-scan base-package="com.bytesvc.svc4jpa,com.bytesvc.dao,com.bytesvc.jpa.hibernate" />

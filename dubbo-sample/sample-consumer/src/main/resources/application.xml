@@ -12,7 +12,7 @@
            http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
 
-	<import resource="classpath:bytetcc.xml" />
+	<import resource="classpath:bytetcc-supports-dubbo.xml" />
 	<import resource="dubbo-consumer.xml" />
 
 	<context:component-scan base-package="com.bytesvc.service" />
