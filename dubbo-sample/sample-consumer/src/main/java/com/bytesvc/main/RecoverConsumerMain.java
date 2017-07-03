@@ -25,6 +25,7 @@ public class RecoverConsumerMain {
 	public static void startup() {
 		context = new ClassPathXmlApplicationContext("application.xml");
 		context.start();
+		waitForMillis(1000);
 	}
 
 	public static void waitForMillis(long millis) {
