@@ -1,0 +1,14 @@
+<configuration>
+    <property name="LOG_FILE_NAME" value="provider.log" />
+
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>${LOG_FILE_NAME}</file>
+        <encoder>
+            <pattern>%date %-5level [%thread] - [%logger] - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="FILE" />
+    </root>
+</configuration>

@@ -1,5 +1,6 @@
 package com.bytesvc.consumer.main;
 
+import org.springframework.boot.Banner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -15,7 +16,8 @@ import org.springframework.context.annotation.ImportResource;
 public class SampleConsumerMain {
 
 	public static void main(String[] args) {
-		new SpringApplicationBuilder(SampleConsumerMain.class).web(true).run(args);
+		new SpringApplicationBuilder(SampleConsumerMain.class).bannerMode(Banner.Mode.OFF).web(true).run(args);
+		System.out.println("springcloud-sample-consumer started!");
 	}
 
 }
