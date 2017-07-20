@@ -5,7 +5,7 @@ import javax.sql.DataSource;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.bytesoft.bytejta.supports.jdbc.LocalXADataSource;
 import org.bytesoft.bytetcc.TransactionManagerImpl;
-import org.bytesoft.bytetcc.supports.springcloud.SpringCloudConfiguration;
+import org.bytesoft.bytetcc.supports.springcloud.config.SpringCloudConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
