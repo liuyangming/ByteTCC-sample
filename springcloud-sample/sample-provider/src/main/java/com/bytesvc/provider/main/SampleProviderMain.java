@@ -1,5 +1,7 @@
 package com.bytesvc.provider.main;
 
+import java.lang.Thread.UncaughtExceptionHandler;
+
 import org.springframework.boot.Banner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -12,6 +14,16 @@ import org.springframework.context.annotation.ImportResource;
 public class SampleProviderMain {
 
 	public static void main(String[] args) {
+		Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandler() {
+			public void uncaughtException(Thread t, Throwable ex) {
+				ex.printStackTrace();
+			}
+		});
+		Thread.currentThread().setUncaughtExceptionHandler(new UncaughtExceptionHandler() {
+			public void uncaughtException(Thread t, Throwable ex) {
+				ex.printStackTrace();
+			}
+		});
 		new SpringApplicationBuilder(SampleProviderMain.class).bannerMode(Banner.Mode.OFF).web(true).run(args);
 		System.out.println("springcloud-sample-provider started!");
 	}
