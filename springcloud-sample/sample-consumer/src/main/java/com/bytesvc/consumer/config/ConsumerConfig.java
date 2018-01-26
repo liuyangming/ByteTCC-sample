@@ -4,9 +4,7 @@ import javax.sql.DataSource;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.bytesoft.bytejta.supports.jdbc.LocalXADataSource;
-import org.bytesoft.bytetcc.TransactionManagerImpl;
 import org.bytesoft.bytetcc.supports.springcloud.config.SpringCloudConfiguration;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -16,10 +14,9 @@ import org.springframework.context.annotation.Import;
 public class ConsumerConfig {
 
 	@Bean(name = "mybatisDataSource")
-	public DataSource getDataSourceForMybatis(@Autowired TransactionManagerImpl transactionManager) {
+	public DataSource getDataSourceForMybatis() {
 		LocalXADataSource dataSource = new LocalXADataSource();
 		dataSource.setDataSource(this.invokeGetDataSource());
-		dataSource.setTransactionManager(transactionManager);
 		return dataSource;
 	}
 
