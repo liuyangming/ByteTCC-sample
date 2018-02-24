@@ -13,11 +13,10 @@ import com.bytesvc.service.ITransferService;
 @Compensable(interfaceClass = ITransferService.class, confirmableKey = "transferServiceConfirm", cancellableKey = "transferServiceCancel")
 public class GenericTransferServiceImpl implements ITransferService {
 
-	@SuppressWarnings("restriction")
 	@javax.annotation.Resource(name = "jdbcTemplate2")
 	private JdbcTemplate jdbcTemplate;
-	@SuppressWarnings("restriction")
-	@javax.annotation.Resource(name = "remoteAccountService")
+	@org.springframework.beans.factory.annotation.Qualifier("remoteAccountService")
+	@org.springframework.beans.factory.annotation.Autowired(required = false)
 	private IAccountService remoteAccountService;
 
 	@Transactional(rollbackFor = ServiceException.class)

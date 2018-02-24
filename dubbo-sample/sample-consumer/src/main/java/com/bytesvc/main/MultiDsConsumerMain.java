@@ -26,7 +26,7 @@ public class MultiDsConsumerMain {
 	}
 
 	public static void startup() {
-		context = new ClassPathXmlApplicationContext("application.xml");
+		context = new ClassPathXmlApplicationContext("standalone.xml");
 		context.start();
 		waitForMillis(1000);
 	}
