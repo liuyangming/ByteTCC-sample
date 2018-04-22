@@ -20,4 +20,8 @@
 	]]>
 	</update>
 
+	<select id="getAcctAmount" resultType="java.lang.Double">
+		select amount from tb_account_two where acct_id = #{acctId}
+	</select>
+
 </mapper>
