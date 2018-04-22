@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bytesvc.consumer.basic.RestResult;
 import com.bytesvc.consumer.dao.TransferDao;
 import com.bytesvc.consumer.service.ITransferService;
 import com.bytesvc.feign.service.IAccountService;
@@ -26,8 +25,7 @@ public class TransferController implements ITransferService {
 	@ResponseBody
 	@RequestMapping(value = "/transfer", method = RequestMethod.POST)
 	@Transactional
-	public void transfer(@RequestParam String sourceAcctId, @RequestParam String targetAcctId,
-			@RequestParam double amount) {
+	public void transfer(@RequestParam String sourceAcctId, @RequestParam String targetAcctId, @RequestParam double amount) {
 		this.acctService.decreaseAmount(sourceAcctId, amount);
 		this.increaseAmount(targetAcctId, amount);
 	}
@@ -46,13 +44,8 @@ public class TransferController implements ITransferService {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/getAmount", method = RequestMethod.POST)
-	public RestResult<Object> getAmount(@RequestParam String targetAcctId) {
-		Double amount = this.transferDao.getAcctAmount(targetAcctId);
-		if (amount != null) {
-			return new RestResult<Object>(amount);
-		} else {
-			return new RestResult<Object>(false, "²Ù×÷³ö´í!");
-		}
+	public Double getAmount(@RequestParam String targetAcctId) {
+		return this.transferDao.getAcctAmount(targetAcctId);
 	}
 
 }
