@@ -21,7 +21,7 @@
 		<dependency>
 			<groupId>org.bytesoft</groupId>
 			<artifactId>bytetcc-supports-dubbo</artifactId>
-			<version>0.4.16</version>
+			<version>0.4.17</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.springframework</groupId>
