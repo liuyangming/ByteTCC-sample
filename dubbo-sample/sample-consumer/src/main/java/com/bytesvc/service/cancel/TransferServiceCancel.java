@@ -10,7 +10,6 @@ import com.bytesvc.service.ITransferService;
 @Service("transferServiceCancel")
 public class TransferServiceCancel implements ITransferService {
 
-	@SuppressWarnings("restriction")
 	@javax.annotation.Resource(name = "jdbcTemplate2")
 	private JdbcTemplate jdbcTemplate;
 

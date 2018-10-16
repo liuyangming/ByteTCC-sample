@@ -44,3 +44,9 @@ bytetcc
 /springcloud-sample/sample-provider/.project
 /dubbo-sample/sample-provider/*.log
 /dubbo-sample/sample-consumer/*.log
+/springcloud-sample/sample-consumer/*.log
+/springcloud-sample/sample-provider/provider.log
+/springboot-sample/sample-provider/.classpath
+/springboot-sample/sample-provider/.project
+/springboot-sample/sample-consumer/.classpath
+/springboot-sample/sample-consumer/.project

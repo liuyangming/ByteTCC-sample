@@ -3,26 +3,26 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.bytesoft.bytetcc.sample</groupId>
-	<artifactId>dubbo-sample-provider</artifactId>
+	<artifactId>dubbo-sample-provider-0.5.x</artifactId>
 	<version>0.0.2</version>
-	<name>dubbo-sample-provider</name>
+	<name>dubbo-sample-provider-0.5.x</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!-- <spring.version>4.3.7.RELEASE</spring.version> -->
-		<spring.version>4.0.3.RELEASE</spring.version>
+		<spring.version>5.0.8.RELEASE</spring.version>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.bytesoft.bytetcc.sample</groupId>
-			<artifactId>dubbo-sample-api</artifactId>
+			<artifactId>dubbo-sample-api-0.5.x</artifactId>
 			<version>0.0.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.bytesoft</groupId>
 			<artifactId>bytetcc-supports-dubbo</artifactId>
-			<version>0.4.17</version>
+			<version>0.5.0-ALPHA1</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.springframework</groupId>
@@ -62,42 +62,42 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-beans</artifactId>
-			<version>4.0.3.RELEASE</version>
+			<version>5.0.8.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
-			<version>4.0.3.RELEASE</version>
+			<version>5.0.8.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
-			<version>4.0.3.RELEASE</version>
+			<version>5.0.8.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
-			<version>4.0.3.RELEASE</version>
+			<version>5.0.8.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
-			<version>4.0.3.RELEASE</version>
+			<version>5.0.8.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aop</artifactId>
-			<version>4.0.3.RELEASE</version>
+			<version>5.0.8.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>4.0.3.RELEASE</version>
+			<version>5.0.8.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-expression</artifactId>
-			<version>4.0.3.RELEASE</version>
+			<version>5.0.8.RELEASE</version>
 		</dependency>
 
 		<dependency>
@@ -124,7 +124,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
-			<version>4.0.3.RELEASE</version>
+			<version>5.0.8.RELEASE</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.springframework</groupId>
@@ -144,28 +144,50 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>4.2.0.Final</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-jpa</artifactId>
-			<version>1.11.1.RELEASE</version>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
-			<version>4.2.0.Final</version>
-		</dependency>
+		<!-- <dependency> -->
+		<!-- <groupId>org.hibernate</groupId> -->
+		<!-- <artifactId>hibernate-core</artifactId> -->
+		<!-- <version>5.3.6.Final</version> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.hibernate</groupId> -->
+		<!-- <artifactId>hibernate-entitymanager</artifactId> -->
+		<!-- <version>5.3.6.Final</version> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.springframework.data</groupId> -->
+		<!-- <artifactId>spring-data-jpa</artifactId> -->
+		<!-- <version>2.1.0.RELEASE</version> -->
+		<!-- </dependency> -->
 
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>druid</artifactId>
 			<version>1.0.16</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot</artifactId>
+			<version>2.0.4.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-autoconfigure</artifactId>
+			<version>2.0.4.RELEASE</version>
+		</dependency>
+		<!-- <dependency> -->
+		<!-- <groupId>org.springframework.boot</groupId> -->
+		<!-- <artifactId>spring-boot-starter-data-jpa</artifactId> -->
+		<!-- <version>2.0.5.RELEASE</version> -->
+		<!-- <exclusions> -->
+		<!-- <exclusion> -->
+		<!-- <groupId>org.springframework.boot</groupId> -->
+		<!-- <artifactId>spring-boot-starter-logging</artifactId> -->
+		<!-- </exclusion> -->
+		<!-- </exclusions> -->
+		<!-- </dependency> -->
+
 	</dependencies>
 
 	<build>

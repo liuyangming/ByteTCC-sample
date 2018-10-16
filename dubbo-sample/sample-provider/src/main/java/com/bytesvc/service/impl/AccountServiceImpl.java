@@ -2,17 +2,15 @@ package com.bytesvc.service.impl;
 
 import org.bytesoft.compensable.Compensable;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.bytesvc.ServiceException;
 import com.bytesvc.service.IAccountService;
 
-@Service("accountService")
+@com.alibaba.dubbo.config.annotation.Service(interfaceClass = IAccountService.class, group = "x-bytetcc", filter = "bytetcc", cluster = "failfast", retries = 0)
 @Compensable(interfaceClass = IAccountService.class, confirmableKey = "accountServiceConfirm", cancellableKey = "accountServiceCancel")
 public class AccountServiceImpl implements IAccountService {
 
-	@SuppressWarnings("restriction")
 	@javax.annotation.Resource(name = "jdbcTemplate")
 	private JdbcTemplate jdbcTemplate;
 

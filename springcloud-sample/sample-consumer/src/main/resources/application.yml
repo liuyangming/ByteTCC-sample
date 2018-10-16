@@ -8,3 +8,28 @@ eureka:
     serviceUrl:
       defaultZone: http://inst1:7000/eureka/
 
+spring:
+  data:
+    mongodb:
+      uri: mongodb://10.37.147.250:27017,10.37.147.250:27017
+  cloud:
+    zookeeper:
+      connectString: 127.0.0.1:2181
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/inst02
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    type: org.apache.commons.dbcp2.BasicDataSource
+
+ribbon:
+  ConnectTimeout: 1000
+  ReadTimeout: 15000
+  MaxAutoRetries: 0
+
+mybatis:
+  type-aliases-package: com.bytesvc.consumer.dao
+  configuration:
+    map-underscore-to-camel-case: true
+    default-fetch-size: 100
+    default-statement-timeout: 30

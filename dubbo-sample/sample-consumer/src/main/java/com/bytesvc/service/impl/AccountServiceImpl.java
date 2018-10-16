@@ -13,7 +13,6 @@ import com.bytesvc.service.IAccountService;
 @Compensable(interfaceClass = IAccountService.class, confirmableKey = "accountServiceConfirm", cancellableKey = "accountServiceCancel")
 public class AccountServiceImpl implements IAccountService {
 
-	@SuppressWarnings("restriction")
 	@javax.annotation.Resource(name = "jdbcTemplate1")
 	private JdbcTemplate jdbcTemplate;
 

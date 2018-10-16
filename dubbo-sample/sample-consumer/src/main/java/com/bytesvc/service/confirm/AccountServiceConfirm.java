@@ -10,7 +10,6 @@ import com.bytesvc.service.IAccountService;
 @Service("accountServiceConfirm")
 public class AccountServiceConfirm implements IAccountService {
 
-	@SuppressWarnings("restriction")
 	@javax.annotation.Resource(name = "jdbcTemplate1")
 	private JdbcTemplate jdbcTemplate;
 

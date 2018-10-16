@@ -13,20 +13,15 @@ import com.bytesvc.service.ITransferService;
 @Compensable(interfaceClass = ITransferService.class, confirmableKey = "transferServiceConfirm", cancellableKey = "transferServiceCancel")
 public class MultiDsTransferServiceImpl implements ITransferService {
 
-	@SuppressWarnings("restriction")
 	@javax.annotation.Resource(name = "accountService")
 	private IAccountService nativeAccountService;
-	@SuppressWarnings("restriction")
 	@javax.annotation.Resource(name = "jdbcTemplate2")
 	private JdbcTemplate jdbcTemplate;
 
 	@Transactional(rollbackFor = ServiceException.class)
 	public void transfer(String sourceAcctId, String targetAcctId, double amount) throws ServiceException {
-
 		this.nativeAccountService.decreaseAmount(sourceAcctId, amount);
 		this.increaseAmount(targetAcctId, amount);
-
-		// throw new ServiceException("rollback");
 	}
 
 	private void increaseAmount(String acctId, double amount) throws ServiceException {

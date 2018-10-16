@@ -1,34 +1,41 @@
 package com.bytesvc.main;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.beans.BeansException;
+import org.springframework.boot.Banner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 import com.bytesvc.service.ITransferService;
 
 /**
  * 多数据源场景
  */
-public class MultiDsConsumerMain {
-
-	static ClassPathXmlApplicationContext context = null;
+@EnableAspectJAutoProxy
+@SpringBootApplication(scanBasePackages = { "com.bytesvc.service", "com.bytesvc.config" })
+public class MultiDsConsumerMain implements ApplicationContextAware {
+	static ApplicationContext context = null;
 
 	public static void main(String... args) throws Throwable {
-		startup();
+		SpringApplication application = new SpringApplication(MultiDsConsumerMain.class);
+		application.setBannerMode(Banner.Mode.OFF);
+		application.run(args);
 
-		ITransferService transferSvc = (ITransferService) context.getBean("multiDsTransferService");
 		try {
+			ITransferService transferSvc = (ITransferService) context.getBean("multiDsTransferService");
 			transferSvc.transfer("1001", "2001", 1.00d);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		} finally {
 			shutdown();
 		}
-
 	}
 
-	public static void startup() {
-		context = new ClassPathXmlApplicationContext("standalone.xml");
-		context.start();
-		waitForMillis(1000);
+	public static void shutdown() {
+		waitForMillis(1000 * 60);
+		System.exit(0);
 	}
 
 	public static void waitForMillis(long millis) {
@@ -39,12 +46,8 @@ public class MultiDsConsumerMain {
 		}
 	}
 
-	public static void shutdown() {
-		waitForMillis(1000 * 60);
-		if (context != null) {
-			context.close();
-		}
-		System.exit(0);
+	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+		context = applicationContext;
 	}
 
 }

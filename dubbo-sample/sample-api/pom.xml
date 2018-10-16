@@ -3,9 +3,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.bytesoft.bytetcc.sample</groupId>
-	<artifactId>dubbo-sample-api</artifactId>
+	<artifactId>dubbo-sample-api-0.5.x</artifactId>
 	<version>0.0.2</version>
-	<name>dubbo-sample-api</name>
+	<name>dubbo-sample-api-0.5.x</name>
 
 	<dependencies>
 		<dependency>
@@ -16,7 +16,7 @@
 		<dependency>
 			<groupId>org.bytesoft</groupId>
 			<artifactId>bytetcc-common</artifactId>
-			<version>0.4.17</version>
+			<version>0.5.0-ALPHA1</version>
 		</dependency>
 	</dependencies>
 
