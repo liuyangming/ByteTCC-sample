@@ -16,24 +16,19 @@ import com.bytesvc.provider.interfaces.IAccountService;
 
 @Compensable(interfaceClass = IAccountService.class, confirmableKey = "accountServiceConfirm", cancellableKey = "accountServiceCancel")
 @RestController
-public class ProviderController implements CompensableContextAware {
+public class ProviderController {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
-	private CompensableContext context;
 
-	// @CrossOrigin(origins = "http://localhost")
 	@ResponseBody
-	@RequestMapping(value = "/increase/{acctId}/{amount}") // , method = RequestMethod.POST
+	@RequestMapping(value = "/increase/{acctId}/{amount}", method = RequestMethod.POST)
 	@Transactional
 	public void increaseAmount(@PathVariable("acctId") String acctId, @PathVariable("amount") double amount) {
-		// int value = this.jdbcTemplate.update("update tb_account_one set amount = amount + ? where acct_id = ?", amount,
-		// acctId);
-		// if (value != 1) {
-		// throw new IllegalStateException("ERROR!");
-		// }
+		int value = this.jdbcTemplate.update("update tb_account_one set amount = amount + ? where acct_id = ?", amount, acctId);
+		if (value != 1) {
+			throw new IllegalStateException("ERROR!");
+		}
 
-		context.setVariable("status1", 1);
-		context.setVariable("status2", 2);
 		System.out.printf("exec increase: acct= %s, amount= %7.2f%n", acctId, amount);
 	}
 
@@ -46,10 +41,6 @@ public class ProviderController implements CompensableContextAware {
 			throw new IllegalStateException("ERROR!");
 		}
 		System.out.printf("exec decrease: acct= %s, amount= %7.2f%n", acctId, amount);
-	}
-
-	public void setCompensableContext(CompensableContext aware) {
-		this.context = aware;
 	}
 
 }
