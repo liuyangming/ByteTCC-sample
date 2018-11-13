@@ -2,7 +2,6 @@ package com.bytesvc.config;
 
 import org.apache.curator.retry.ExponentialBackoffRetry;
 import org.bytesoft.bytetcc.supports.dubbo.config.DubboSecondaryConfiguration;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
