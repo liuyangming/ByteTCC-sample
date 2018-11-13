@@ -4,7 +4,6 @@ import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.retry.ExponentialBackoffRetry;
 import org.bytesoft.bytetcc.supports.springboot.config.SpringBootSecondaryConfiguration;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
@@ -19,7 +18,7 @@ public class ConsumerConfig {
 	/**
 	 * 使用'按请求粒度负载均衡'策略时需要添加该配置.
 	 */
-	@Bean
+	// @Bean // 使用文件存储事务日志时, 不需要配置zookeeper
 	public CuratorFramework curatorFramework() throws InterruptedException {
 		CuratorFramework curatorFramework = CuratorFrameworkFactory.builder() //
 				.connectString("127.0.0.1:2181") //

@@ -3,7 +3,9 @@ package com.bytesvc.main;
 import org.springframework.beans.BeansException;
 import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
@@ -15,6 +17,7 @@ import com.bytesvc.service.ITransferService;
  */
 @EnableAspectJAutoProxy
 @SpringBootApplication(scanBasePackages = { "com.bytesvc.service", "com.bytesvc.config" })
+@EnableAutoConfiguration(exclude = { MongoAutoConfiguration.class }) // 使用文件存储时, 不需要配置mongodb
 public class GenericConsumerMain implements ApplicationContextAware {
 	static ApplicationContext context = null;
 

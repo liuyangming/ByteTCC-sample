@@ -10,15 +10,15 @@ eureka:
 
 
 spring:
-  data:
-    mongodb:
-      uri: mongodb://10.37.147.250:27017/bytetcc
-  cloud:
-    zookeeper:
-      connectString: 127.0.0.1:2181
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/inst01
     username: root
     password: 123456
     driver-class-name: com.mysql.jdbc.Driver
     type: org.apache.commons.dbcp2.BasicDataSource
+#  data:
+#    mongodb:
+#      uri: mongodb://10.37.147.250:27017/bytetcc
+#  cloud:
+#    zookeeper:
+#      connectString: 127.0.0.1:2181

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.boot.Banner;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -28,7 +29,7 @@ import org.springframework.context.annotation.Import;
 @SpringBootApplication(scanBasePackages = "com.bytesvc.consumer")
 @EnableCircuitBreaker
 @EnableHystrix
-@EnableAutoConfiguration
+@EnableAutoConfiguration(exclude = { MongoAutoConfiguration.class }) // 使用文件存储时, 不需要配置mongodb
 public class SampleConsumerMain implements BeanFactoryAware {
 	private static BeanFactory beanFactory;
 
