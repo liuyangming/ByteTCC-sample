@@ -9,10 +9,17 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+/**
+ * 按请求粒度负载均衡(使用MongoDB存储事务日志):需引入SpringBootConfiguration; <br />
+ * 按事务粒度负载均衡(使用文件系统存储事务日志):需引入SpringBootSecondaryConfiguration;
+ */
 @Import(SpringBootConfiguration.class)
 @Configuration
 public class ProviderConfig implements WebMvcConfigurer {
 
+	/**
+	 * 使用'按请求粒度负载均衡'策略时需要添加该配置.
+	 */
 	@Bean
 	public CuratorFramework curatorFramework() throws InterruptedException {
 		CuratorFramework curatorFramework = CuratorFrameworkFactory.builder() //

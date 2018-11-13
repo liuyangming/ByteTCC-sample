@@ -17,12 +17,19 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import com.alibaba.dubbo.config.spring.context.annotation.DubboComponentScan;
 import com.alibaba.dubbo.config.spring.context.annotation.EnableDubbo;
 
+/**
+ * 按请求粒度负载均衡(使用MongoDB存储事务日志):需引入DubboSupportConfiguration; <br />
+ * 按事务粒度负载均衡(使用文件系统存储事务日志):需引入DubboSecondaryConfiguration;
+ */
 @Import(DubboSupportConfiguration.class)
 @Configuration
 @DubboComponentScan(basePackages = { "com.bytesvc.service.impl", "com.bytesvc.service.confirm", "com.bytesvc.service.cancel" })
 @EnableDubbo(scanBasePackages = { "com.bytesvc.service", "com.bytesvc.config" })
 public class ConsumerConfig {
 
+	/**
+	 * 使用'按请求粒度负载均衡'策略时需要添加该配置.
+	 */
 	@Bean
 	public org.apache.curator.framework.CuratorFramework curatorFramework() {
 		org.apache.curator.framework.CuratorFramework curatorFramework = //
