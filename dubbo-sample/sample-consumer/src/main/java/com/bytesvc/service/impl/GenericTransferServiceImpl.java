@@ -9,7 +9,7 @@ import com.bytesvc.ServiceException;
 import com.bytesvc.service.IAccountService;
 import com.bytesvc.service.ITransferService;
 
-@com.alibaba.dubbo.config.annotation.Service(interfaceClass = ITransferService.class, group = "x-bytetcc", filter = "bytetcc", cluster = "failfast", retries = 0)
+@com.alibaba.dubbo.config.annotation.Service(interfaceClass = ITransferService.class, group = "x-bytetcc", filter = "bytetcc", loadbalance = "bytetcc", cluster = "failfast", retries = 0)
 @Service("genericTransferService")
 @Compensable(interfaceClass = ITransferService.class, confirmableKey = "transferServiceConfirm", cancellableKey = "transferServiceCancel")
 public class GenericTransferServiceImpl implements ITransferService {
