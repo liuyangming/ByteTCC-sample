@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.bytesvc.ServiceException;
 import com.bytesvc.service.IAccountService;
 
-@com.alibaba.dubbo.config.annotation.Service(interfaceClass = IAccountService.class, group = "x-bytetcc", filter = "bytetcc", cluster = "failfast", retries = 0)
+@com.alibaba.dubbo.config.annotation.Service(interfaceClass = IAccountService.class, group = "x-bytetcc", filter = "bytetcc", loadbalance = "bytetcc", cluster = "failfast", retries = 0)
 @Compensable(interfaceClass = IAccountService.class, confirmableKey = "accountServiceConfirm", cancellableKey = "accountServiceCancel")
 public class AccountServiceImpl implements IAccountService {
 
