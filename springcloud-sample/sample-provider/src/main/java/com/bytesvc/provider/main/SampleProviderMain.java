@@ -1,6 +1,6 @@
 package com.bytesvc.provider.main;
 
-import org.bytesoft.bytetcc.supports.springcloud.config.SpringCloudConfiguration;
+import org.bytesoft.bytetcc.supports.springcloud.config.SpringCloudSecondaryConfiguration;
 import org.springframework.boot.Banner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Import;
  * 按请求粒度负载均衡(使用MongoDB存储事务日志):需引入SpringCloudConfiguration; <br />
  * 按事务粒度负载均衡(使用文件系统存储事务日志):需引入SpringCloudSecondaryConfiguration;
  */
-@Import(SpringCloudConfiguration.class)
+@Import(SpringCloudSecondaryConfiguration.class)
 @EnableDiscoveryClient
 @SpringBootApplication(scanBasePackages = "com.bytesvc.provider")
 public class SampleProviderMain {

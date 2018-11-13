@@ -3,7 +3,7 @@ package com.bytesvc.config;
 import javax.sql.DataSource;
 
 import org.apache.curator.retry.ExponentialBackoffRetry;
-import org.bytesoft.bytetcc.supports.dubbo.config.DubboSupportConfiguration;
+import org.bytesoft.bytetcc.supports.dubbo.config.DubboSecondaryConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -21,7 +21,7 @@ import com.alibaba.dubbo.config.spring.context.annotation.EnableDubbo;
  * 按请求粒度负载均衡(使用MongoDB存储事务日志):需引入DubboSupportConfiguration; <br />
  * 按事务粒度负载均衡(使用文件系统存储事务日志):需引入DubboSecondaryConfiguration;
  */
-@Import(DubboSupportConfiguration.class)
+@Import(DubboSecondaryConfiguration.class)
 @Configuration
 @DubboComponentScan(basePackages = { "com.bytesvc.service.impl", "com.bytesvc.service.confirm", "com.bytesvc.service.cancel" })
 @EnableDubbo(scanBasePackages = { "com.bytesvc.service", "com.bytesvc.config" })

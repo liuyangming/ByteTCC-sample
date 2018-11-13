@@ -3,7 +3,7 @@ package com.bytesvc.provider.config;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.retry.ExponentialBackoffRetry;
-import org.bytesoft.bytetcc.supports.springboot.config.SpringBootConfiguration;
+import org.bytesoft.bytetcc.supports.springboot.config.SpringBootSecondaryConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -13,7 +13,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * 按请求粒度负载均衡(使用MongoDB存储事务日志):需引入SpringBootConfiguration; <br />
  * 按事务粒度负载均衡(使用文件系统存储事务日志):需引入SpringBootSecondaryConfiguration;
  */
-@Import(SpringBootConfiguration.class)
+@Import(SpringBootSecondaryConfiguration.class)
 @Configuration
 public class ProviderConfig implements WebMvcConfigurer {
 
