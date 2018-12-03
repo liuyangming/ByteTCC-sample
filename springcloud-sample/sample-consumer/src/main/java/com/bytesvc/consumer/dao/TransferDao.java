@@ -7,13 +7,10 @@ import org.apache.ibatis.annotations.Update;
 @Mapper
 public interface TransferDao {
 
-	@Update("update tb_account_two set frozen = frozen + #{amount} where acct_id = #{acctId}")
+	@Update("update tb_account_two set amount = amount + #{amount} where acct_id = #{acctId}")
 	public int increaseAmount(@Param("acctId") String accountId, @Param("amount") double amount);
 
-	@Update("update tb_account_two set amount = amount + #{amount}, frozen = frozen - #{amount} where acct_id = #{acctId}")
-	public int confirmIncrease(@Param("acctId") String accountId, @Param("amount") double amount);
-
-	@Update("update tb_account_two set frozen = frozen - #{amount} where acct_id = #{acctId}")
+	@Update("update tb_account_two set amount = amount - #{amount} where acct_id = #{acctId}")
 	public int cancelIncrease(@Param("acctId") String accountId, @Param("amount") double amount);
 
 }
