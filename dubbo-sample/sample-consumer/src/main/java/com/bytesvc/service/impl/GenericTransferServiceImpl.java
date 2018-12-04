@@ -26,10 +26,7 @@ public class GenericTransferServiceImpl implements ITransferService {
 	}
 
 	private void increaseAmount(String acctId, double amount) throws ServiceException {
-		int value = this.jdbcTemplate.update("update tb_account_two set frozen = frozen + ? where acct_id = ?", amount, acctId);
-		if (value != 1) {
-			throw new ServiceException("ERROR!");
-		}
+		this.jdbcTemplate.update("update tb_account_two set frozen = frozen + ? where acct_id = ?", amount, acctId);
 		System.out.printf("exec increase: acct= %s, amount= %7.2f%n", acctId, amount);
 	}
 

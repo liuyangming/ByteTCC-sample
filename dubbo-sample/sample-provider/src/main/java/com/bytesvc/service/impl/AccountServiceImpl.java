@@ -16,22 +16,15 @@ public class AccountServiceImpl implements IAccountService {
 
 	@Transactional(rollbackFor = ServiceException.class)
 	public void increaseAmount(String acctId, double amount) throws ServiceException {
-		int value = this.jdbcTemplate.update("update tb_account_one set frozen = frozen + ? where acct_id = ?", amount, acctId);
-		if (value != 1) {
-			throw new ServiceException("ERROR!");
-		}
+		this.jdbcTemplate.update("update tb_account_one set frozen = frozen + ? where acct_id = ?", amount, acctId);
 		System.out.printf("exec increase: acct= %s, amount= %7.2f%n", acctId, amount);
 	}
 
 	@Transactional(rollbackFor = ServiceException.class)
 	public void decreaseAmount(String acctId, double amount) throws ServiceException {
-		int value = this.jdbcTemplate.update(
-				"update tb_account_one set amount = amount - ?, frozen = frozen + ? where acct_id = ?", amount, amount, acctId);
-		if (value != 1) {
-			throw new ServiceException("ERROR!");
-		}
+		this.jdbcTemplate.update("update tb_account_one set amount = amount - ?, frozen = frozen + ? where acct_id = ?", amount,
+				amount, acctId);
 		System.out.printf("exec decrease: acct= %s, amount= %7.2f%n", acctId, amount);
-		// throw new ServiceException("rollback");
 	}
 
 }

@@ -22,10 +22,7 @@ public class AccountController {
 	@RequestMapping(value = "/increase", method = RequestMethod.POST)
 	@Transactional
 	public void increaseAmount(@RequestParam("acctId") String acctId, @RequestParam("amount") double amount) {
-		int value = this.jdbcTemplate.update("update tb_account_one set amount = amount + ? where acct_id = ?", amount, acctId);
-		if (value != 1) {
-			throw new IllegalStateException("ERROR!");
-		}
+		this.jdbcTemplate.update("update tb_account_one set amount = amount + ? where acct_id = ?", amount, acctId);
 		System.out.printf("exec increase: acct= %s, amount= %7.2f%n", acctId, amount);
 	}
 
@@ -33,10 +30,7 @@ public class AccountController {
 	@RequestMapping(value = "/decrease", method = RequestMethod.POST)
 	@Transactional
 	public void decreaseAmount(@RequestParam("acctId") String acctId, @RequestParam("amount") double amount) {
-		int value = this.jdbcTemplate.update("update tb_account_one set amount = amount - ? where acct_id = ?", amount, acctId);
-		if (value != 1) {
-			throw new IllegalStateException("ERROR!");
-		}
+		this.jdbcTemplate.update("update tb_account_one set amount = amount - ? where acct_id = ?", amount, acctId);
 		System.out.printf("exec decrease: acct= %s, amount= %7.2f%n", acctId, amount);
 
 		// throw new IllegalStateException("error");

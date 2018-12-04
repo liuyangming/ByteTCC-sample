@@ -15,10 +15,7 @@ public class TransferServiceCancel implements ITransferService {
 
 	@Transactional
 	public void transfer(String sourceAcctId, String targetAcctId, double amount) {
-		int value = this.transferDao.cancelIncrease(targetAcctId, amount);
-		if (value != 1) {
-			throw new IllegalStateException("ERROR!");
-		}
+		this.transferDao.cancelIncrease(targetAcctId, amount);
 		System.out.printf("exec decrease: acct= %s, amount= %7.2f%n", targetAcctId, amount);
 	}
 

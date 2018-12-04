@@ -31,10 +31,7 @@ public class TransferController implements ITransferService {
 	}
 
 	private void increaseAmount(String acctId, double amount) {
-		int value = this.transferDao.increaseAmount(acctId, amount);
-		if (value != 1) {
-			throw new IllegalStateException("ERROR!");
-		}
+		this.transferDao.increaseAmount(acctId, amount);
 		System.out.printf("exec increase: acct= %s, amount= %7.2f%n", acctId, amount);
 	}
 

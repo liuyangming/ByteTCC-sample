@@ -15,7 +15,7 @@ import com.bytesvc.consumer.interfaces.ITransferService;
 
 @Compensable(interfaceClass = ITransferService.class, confirmableKey = "transferServiceConfirm", cancellableKey = "transferServiceCancel")
 @RestController
-public class ConsumerController implements ITransferService {
+public class ConsumerController {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	@Autowired
@@ -26,16 +26,9 @@ public class ConsumerController implements ITransferService {
 	@Transactional
 	public void transferAmount(@PathVariable("source") String source, @PathVariable("target") String target,
 			@PathVariable("amount") double amount) {
-
 		this.restTemplate.postForEntity(String.format("http://127.0.0.1:3051/decrease/%s/%s", source, amount), null, Void.TYPE);
-
-		int value = this.jdbcTemplate.update("update tb_account_two set amount = amount + ? where acct_id = ?", amount, target);
-		if (value != 1) {
-			throw new IllegalStateException("ERROR!");
-		}
+		this.jdbcTemplate.update("update tb_account_two set amount = amount + ? where acct_id = ?", amount, target);
 		System.out.printf("exec transfer: source= %s, target= %s, amount= %7.2f%n", source, target, amount);
-
-		// throw new IllegalStateException("rollback!");
 	}
 
 }
