@@ -14,19 +14,13 @@ public class AccountServiceConfirm implements IAccountService {
 
 	@Transactional
 	public void increaseAmount(String acctId, double amount) {
-		int value = this.jdbcTemplate.update("update tb_account_one set amount = amount - ? where acct_id = ?", amount, acctId);
-		if (value != 1) {
-			throw new IllegalStateException("ERROR!");
-		}
+		this.jdbcTemplate.update("update tb_account_one set amount = amount - ? where acct_id = ?", amount, acctId);
 		System.out.printf("done increase: acct= %s, amount= %7.2f%n", acctId, amount);
 	}
 
 	@Transactional
 	public void decreaseAmount(String acctId, double amount) {
-		int value = this.jdbcTemplate.update("update tb_account_one set amount = amount + ? where acct_id = ?", amount, acctId);
-		if (value != 1) {
-			throw new IllegalStateException("ERROR!");
-		}
+		this.jdbcTemplate.update("update tb_account_one set amount = amount + ? where acct_id = ?", amount, acctId);
 		System.out.printf("done decrease: acct= %s, amount= %7.2f%n", acctId, amount);
 	}
 

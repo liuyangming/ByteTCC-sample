@@ -30,10 +30,7 @@ public class ProviderController {
 	@RequestMapping(value = "/decrease/{acctId}/{amount}", method = RequestMethod.POST)
 	@Transactional
 	public void decreaseAmount(@PathVariable("acctId") String acctId, @PathVariable("amount") double amount) {
-		int value = this.jdbcTemplate.update("update tb_account_one set amount = amount - ? where acct_id = ?", amount, acctId);
-		if (value != 1) {
-			throw new IllegalStateException("ERROR!");
-		}
+		this.jdbcTemplate.update("update tb_account_one set amount = amount - ? where acct_id = ?", amount, acctId);
 		System.out.printf("exec decrease: acct= %s, amount= %7.2f%n", acctId, amount);
 	}
 

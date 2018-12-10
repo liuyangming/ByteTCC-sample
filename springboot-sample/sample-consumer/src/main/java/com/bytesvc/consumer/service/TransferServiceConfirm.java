@@ -14,10 +14,7 @@ public class TransferServiceConfirm implements ITransferService {
 
 	@Transactional
 	public void transferAmount(String source, String target, double amount) {
-		int value = this.jdbcTemplate.update("update tb_account_two set amount = amount - ? where acct_id = ?", amount, target);
-		if (value != 1) {
-			throw new IllegalStateException("ERROR!");
-		}
+		this.jdbcTemplate.update("update tb_account_two set amount = amount - ? where acct_id = ?", amount, target);
 		System.out.printf("done transfer: source= %s, target= %s, amount= %7.2f%n", source, target, amount);
 	}
 
