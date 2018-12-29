@@ -9,14 +9,14 @@ import com.bytesvc.ServiceException;
 import com.bytesvc.service.IAccountService;
 import com.bytesvc.service.ITransferService;
 
-@com.alibaba.dubbo.config.annotation.Service(interfaceClass = ITransferService.class, group = "x-bytetcc", filter = "bytetcc", loadbalance = "bytetcc", cluster = "failfast", retries = 0)
+@com.alibaba.dubbo.config.annotation.Service(interfaceClass = ITransferService.class, group = "x-bytetcc", filter = "bytetcc", loadbalance = "bytetcc", cluster = "failfast", retries = -1)
 @Service("genericTransferService")
 @Compensable(interfaceClass = ITransferService.class, confirmableKey = "transferServiceConfirm", cancellableKey = "transferServiceCancel")
 public class GenericTransferServiceImpl implements ITransferService {
 
 	@javax.annotation.Resource(name = "jdbcTemplate2")
 	private JdbcTemplate jdbcTemplate;
-	@com.alibaba.dubbo.config.annotation.Reference(interfaceClass = IAccountService.class, group = "x-bytetcc", filter = "bytetcc", loadbalance = "bytetcc", cluster = "failfast", retries = 0)
+	@com.alibaba.dubbo.config.annotation.Reference(interfaceClass = IAccountService.class, group = "x-bytetcc", filter = "bytetcc", loadbalance = "bytetcc", cluster = "failfast", retries = -1)
 	private IAccountService remoteAccountService;
 
 	@Transactional(rollbackFor = ServiceException.class)
