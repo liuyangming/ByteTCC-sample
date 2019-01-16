@@ -13,7 +13,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.bytesvc.consumer.interfaces.ITransferService;
 
-@Compensable(interfaceClass = ITransferService.class, confirmableKey = "transferServiceConfirm", cancellableKey = "transferServiceCancel")
+@Compensable(interfaceClass = ITransferService.class, cancellableKey = "transferServiceCancel")
 @RestController
 public class ConsumerController {
 	@Autowired
