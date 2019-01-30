@@ -1,11 +1,18 @@
 package com.bytesvc.provider.config;
 
+import java.util.Properties;
+
+import javax.sql.DataSource;
+
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.retry.ExponentialBackoffRetry;
 import org.bytesoft.bytetcc.supports.springboot.config.SpringBootSecondaryConfiguration;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
@@ -27,6 +34,20 @@ public class ProviderConfig implements WebMvcConfigurer {
 		curatorFramework.start();
 		curatorFramework.blockUntilConnected();
 		return curatorFramework;
+	}
+
+	@Bean("entityManagerFactory")
+	public LocalContainerEntityManagerFactoryBean entityManagerFactory(@Autowired DataSource dataSource) {
+		Properties properties = new Properties();
+		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
+		properties.setProperty("hibernate.transaction.coordinator_class", "jta");
+		properties.setProperty("hibernate.transaction.jta.platform" //
+				, "org.bytesoft.bytetcc.supports.jpa.hibernate.HibernateJtaPlatform");
+
+		LocalContainerEntityManagerFactoryBean entityManager = new LocalContainerEntityManagerFactoryBean();
+		entityManager.setJpaProperties(properties);
+		entityManager.setDataSource(dataSource);
+		return entityManager;
 	}
 
 }
