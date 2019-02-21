@@ -13,7 +13,7 @@
 		<dependency>
 			<groupId>org.bytesoft</groupId>
 			<artifactId>bytetcc-supports-springcloud</artifactId>
-			<version>0.5.0-BETA3</version>
+			<version>0.5.0-BETA4</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.springframework.cloud</groupId>
