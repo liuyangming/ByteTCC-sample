@@ -9,6 +9,10 @@
 	<packaging>jar</packaging>
 	<name>springcloud-sample-provider</name>
 
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.bytesoft</groupId>

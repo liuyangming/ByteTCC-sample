@@ -18,8 +18,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Import;
 
 /**
- * °´ÇëÇóÁ£¶È¸ºÔØ¾ùºâ(Ê¹ÓÃMongoDB´æ´¢ÊÂÎñÈÕÖ¾):ĞèÒıÈëSpringCloudConfiguration; <br />
- * °´ÊÂÎñÁ£¶È¸ºÔØ¾ùºâ(Ê¹ÓÃÎÄ¼şÏµÍ³´æ´¢ÊÂÎñÈÕÖ¾):ĞèÒıÈëSpringCloudSecondaryConfiguration;
+ * æŒ‰è¯·æ±‚ç²’åº¦è´Ÿè½½å‡è¡¡(ä½¿ç”¨MongoDBå­˜å‚¨äº‹åŠ¡æ—¥å¿—):éœ€å¼•å…¥SpringCloudConfiguration; <br />
+ * æŒ‰äº‹åŠ¡ç²’åº¦è´Ÿè½½å‡è¡¡(ä½¿ç”¨æ–‡ä»¶ç³»ç»Ÿå­˜å‚¨äº‹åŠ¡æ—¥å¿—):éœ€å¼•å…¥SpringCloudSecondaryConfiguration;
  */
 @Import(SpringCloudSecondaryConfiguration.class)
 @MapperScan("com.bytesvc.consumer.dao")
@@ -29,7 +29,7 @@ import org.springframework.context.annotation.Import;
 @SpringBootApplication(scanBasePackages = "com.bytesvc.consumer")
 @EnableCircuitBreaker
 @EnableHystrix
-@EnableAutoConfiguration(exclude = { MongoAutoConfiguration.class }) // Ê¹ÓÃÎÄ¼ş´æ´¢Ê±, ²»ĞèÒªÅäÖÃmongodb
+@EnableAutoConfiguration(exclude = { MongoAutoConfiguration.class })  // ä½¿ç”¨æ–‡ä»¶å­˜å‚¨æ—¶, ä¸éœ€è¦é…ç½®mongodb
 public class SampleConsumerMain implements BeanFactoryAware {
 	private static BeanFactory beanFactory;
 
