@@ -20,7 +20,7 @@
 		<dependency>
 			<groupId>org.bytesoft</groupId>
 			<artifactId>bytetcc-common</artifactId>
-			<version>0.5.7</version>
+			<version>0.5.8</version>
 		</dependency>
 	</dependencies>
 
