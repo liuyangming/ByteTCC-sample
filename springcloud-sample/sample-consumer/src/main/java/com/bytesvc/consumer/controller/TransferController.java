@@ -13,6 +13,10 @@ import com.bytesvc.consumer.dao.TransferDao;
 import com.bytesvc.consumer.service.ITransferService;
 import com.bytesvc.feign.service.IAccountService;
 
+/**
+ * 本类中不涉及Confirm逻辑, Confirm逻辑样例在SimplifiedController类中.<br />
+ * 如需为本类添加Confirm逻辑, 可参考Cancel逻辑的做法, 设置confirmableKey即可.
+ */
 @Compensable(interfaceClass = ITransferService.class, cancellableKey = "transferServiceCancel")
 @RestController
 public class TransferController implements ITransferService {

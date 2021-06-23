@@ -2,6 +2,7 @@ package com.bytesvc.consumer.controller;
 
 import org.bytesoft.compensable.Compensable;
 import org.bytesoft.compensable.CompensableCancel;
+import org.bytesoft.compensable.CompensableConfirm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,7 +41,16 @@ public class SimplifiedController implements ITransferService {
 	@Transactional
 	public void cancelTransfer(String sourceAcctId, String targetAcctId, double amount) {
 		this.transferDao.cancelIncrease(targetAcctId, amount);
-		System.out.printf("exec decrease: acct= %s, amount= %7.2f%n", targetAcctId, amount);
+		System.out.printf("undo decrease: acct= %s, amount= %7.2f%n", targetAcctId, amount);
+	}
+
+	/**
+	 * 如果无特殊逻辑需要处理, confirm也可以省略
+	 */
+	@CompensableConfirm
+	@Transactional
+	public void confirmTransfer(String sourceAcctId, String targetAcctId, double amount) {
+		System.out.printf("done decrease: acct= %s, amount= %7.2f%n", targetAcctId, amount);
 	}
 
 }
