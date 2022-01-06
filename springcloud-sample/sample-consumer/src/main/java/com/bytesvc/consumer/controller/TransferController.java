@@ -31,7 +31,9 @@ public class TransferController implements ITransferService {
 	@Transactional
 	public void transfer(@RequestParam String sourceAcctId, @RequestParam String targetAcctId, @RequestParam double amount) {
 		this.acctService.decreaseAmount(sourceAcctId, amount);
-		this.increaseAmount(targetAcctId, amount);
+		this.acctService.decreaseAmount(sourceAcctId, amount);
+		this.increaseAmount(targetAcctId, 2 * amount);
+		throw new IllegalStateException();
 	}
 
 	private void increaseAmount(String acctId, double amount) {

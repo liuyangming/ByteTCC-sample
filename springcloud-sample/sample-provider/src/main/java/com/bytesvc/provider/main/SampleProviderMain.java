@@ -19,7 +19,7 @@ import org.springframework.context.annotation.Import;
 @EnableAutoConfiguration(exclude = { MongoAutoConfiguration.class }) // 使用文件存储时, 不需要配置mongodb
 public class SampleProviderMain {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		new SpringApplicationBuilder(SampleProviderMain.class).bannerMode(Banner.Mode.OFF).run(args);
 		System.out.println("springcloud-sample-provider started!");
 	}

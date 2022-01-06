@@ -10,11 +10,12 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.loadbalancer.core.ServiceInstanceListSupplier;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 
 /**
@@ -27,11 +28,15 @@ import org.springframework.context.annotation.Import;
 @EnableEurekaClient
 @EnableFeignClients("com.bytesvc.feign")
 @SpringBootApplication(scanBasePackages = "com.bytesvc.consumer")
-@EnableCircuitBreaker
-@EnableHystrix
-@EnableAutoConfiguration(exclude = { MongoAutoConfiguration.class })  // 使用文件存储时, 不需要配置mongodb
+//@EnableCircuitBreaker
+@EnableAutoConfiguration(exclude = { MongoAutoConfiguration.class }) // 使用文件存储时, 不需要配置mongodb
 public class SampleConsumerMain implements BeanFactoryAware {
 	private static BeanFactory beanFactory;
+
+	@Bean
+	public ServiceInstanceListSupplier discoveryClientServiceInstanceListSupplier(ConfigurableApplicationContext context) {
+		return ServiceInstanceListSupplier.builder().withBlockingDiscoveryClient().withZonePreference().build(context);
+	}
 
 	public static void main(String[] args) {
 		new SpringApplicationBuilder(SampleConsumerMain.class).bannerMode(Banner.Mode.OFF).run(args);

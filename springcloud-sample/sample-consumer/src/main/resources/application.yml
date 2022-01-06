@@ -11,19 +11,32 @@ eureka:
       defaultZone: http://127.0.0.1:7000/eureka/
 
 spring:
+  application:
+    name: springcloud-sample-consumer
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/inst02?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: org.apache.commons.dbcp2.BasicDataSource
-#  data:
-#    mongodb:
-#      uri: mongodb://10.37.147.250:27017,10.37.147.250:27017
-#  cloud:
-#    zookeeper:
-#      connectString: 127.0.0.1:2181
+  cloud:
+    loadbalancer:
+      enabled: true
+      cache:
+        enabled: false
+#      clients:
+#        SPRINGCLOUD-SAMPLE-PROVIDER:
+#          name: random
+    discovery:
+      enabled: true
+      blocking:
+        enabled: true
+      reactive:
+        enabled: false
 
+# loadbalancer:
+#  client:
+#    name: springcloud-sample-provider
 
 ribbon:
   ConnectTimeout: 1000
