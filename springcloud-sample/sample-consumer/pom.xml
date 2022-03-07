@@ -17,7 +17,7 @@
 		<dependency>
 			<groupId>org.bytesoft</groupId>
 			<artifactId>bytetcc-supports-springcloud</artifactId>
-			<version>0.5.11</version>
+			<version>0.5.12</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.springframework.cloud</groupId>
